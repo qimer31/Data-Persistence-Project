@@ -63,6 +63,11 @@ public class MainManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                MenuUIHandler.isLoaded = false;
+                SceneManager.LoadScene(0);
+            }
         }
     }
 

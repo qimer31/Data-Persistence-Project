@@ -1142,7 +1142,6 @@ MonoBehaviour:
   BestPlayerName: 
   BestPlayerScore: 0
   Name: 
-  BestPlayerText: {fileID: 2078529056}
 --- !u!4 &969573698
 Transform:
   m_ObjectHideFlags: 0
@@ -1740,3 +1739,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: {fileID: 581044350}
+  BestPlayerText: {fileID: 2078529056}

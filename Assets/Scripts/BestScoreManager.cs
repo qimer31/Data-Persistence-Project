@@ -12,8 +12,6 @@ public class BestScoreManager : MonoBehaviour
     public int BestPlayerScore;
     public string Name;
 
-    public Text BestPlayerText;
-
     private void Awake()
     {
         if (Instance != null)
@@ -25,8 +23,7 @@ public class BestScoreManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        LoadBestPlayer();
-        BestPlayerText.text = "Best Score: " + BestPlayerName + " : " + BestPlayerScore;
+        
     }
 
     [System.Serializable]

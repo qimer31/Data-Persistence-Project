@@ -13,10 +13,19 @@ using UnityEditor;
 public class MenuUIHandler : MonoBehaviour
 {
     public TMP_InputField inputName;
+    public Text BestPlayerText;
+    public static bool isLoaded = false;
 
-    private void Start()
+    private void Update()
     {
-        inputName.text = BestScoreManager.Instance.Name;
+        if (!isLoaded)
+        {
+            BestScoreManager.Instance.LoadBestPlayer();
+            BestPlayerText.text = "Best Score: " + BestScoreManager.Instance.BestPlayerName + 
+            " : " + BestScoreManager.Instance.BestPlayerScore;
+            inputName.text = BestScoreManager.Instance.Name;
+            isLoaded = true;
+        }
     }
 
     public void StartNew()
