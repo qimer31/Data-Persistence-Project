@@ -37,8 +37,8 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
-
-        BestScoreText.text = BestScoreManager.Instance.BestPlayerName + " : " +
+        ScoreText.text = $"{BestScoreManager.Instance.Name}'s score : {m_Points}";
+        BestScoreText.text = "Best score: " + BestScoreManager.Instance.BestPlayerName + " : " +
             BestScoreManager.Instance.BestPlayerScore;
     }
 
@@ -69,7 +69,7 @@ public class MainManager : MonoBehaviour
     void AddPoint(int point)
     {
         m_Points += point;
-        ScoreText.text = $"Score : {m_Points}";
+        ScoreText.text = $"{BestScoreManager.Instance.Name}'s score : {m_Points}";
     }
 
     public void GameOver()
