@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
-public class MainManager : MonoBehaviour
+public class BestScoreManager : MonoBehaviour
 {
-    public static MainManager Instance;
+    public static BestScoreManager Instance;
 
     public string BestPlayerName;
     public int BestPlayerScore;
+    public string Name;
+
+    public Text BestPlayerText;
 
     private void Awake()
     {
@@ -22,12 +26,14 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadBestPlayer();
+        BestPlayerText.text = "Best Score: " + BestPlayerName + " : " + BestPlayerScore;
     }
 
     [System.Serializable]
     class SaveData
     {
         public string BestPlayerName;
+        public string Name;
         public int BestPlayerScore;
     }
 
@@ -36,6 +42,7 @@ public class MainManager : MonoBehaviour
         SaveData data = new SaveData();
         data.BestPlayerScore = BestPlayerScore;
         data.BestPlayerName = BestPlayerName;
+        data.Name = Name;
 
         string json = JsonUtility.ToJson(data);
 
@@ -51,6 +58,7 @@ public class MainManager : MonoBehaviour
             SaveData data = JsonUtility.FromJson<SaveData>(json);
             BestPlayerScore = data.BestPlayerScore;
             BestPlayerName = data.BestPlayerName;
+            Name = data.Name;
         }
     }
 }
